@@ -41,7 +41,7 @@ AEB/ACC LLM based scenario generator (LLM_scn_gen.py)
 Exploring the scenario parmeter space using LHS, filtering and simulating the scenarios (LHS_filter.py)
 Training a probabilistic model based on the results from LHS_filter.py and generating critical scenario parameters on the border of the pass/fail (unknown region) (probabilistic_model.py)
 
-<img width="400" alt="Probablistic Model parameter relationship" src="screenshots/AEB_ego_vs_target_spd.png" />
+<img width="600" alt="Probablistic Model parameter relationship" src="screenshots/AEB_ego_vs_target_spd.png" />
 
 Citation for CARLO:
 
