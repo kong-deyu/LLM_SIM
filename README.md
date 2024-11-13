@@ -18,7 +18,7 @@ This tool leverages Large Language Models (LLMs) to generate and simulate Advanc
 4. **Explore Edge Cases**: Test and validate AEB/ACC systems across various scenarios:
    - Generates critcal scenario configurations using probabilistic models on the edge of pass/fail.
 
-Built on CARLO (CARLA Low-budget), this simulator provides a lightweight yet effective way to test autonomous vehicle safety systems without the computational overhead of full 3D environments.
+Built on CARLO (CARLA Low-budget), this simulator provides a lightweight yet effective way to test autonomous vehicle safety systems without the computational overhead of full 3D environments. See citation for CARLO below.
 
 <img width="1000" alt="AEB Simulation Screenshot 1" src="screenshots/AEB_visualization.png" />
 <img width="1000" alt="AEB Simulation Screenshot 2" src="screenshots/LLM_SIM_UI.png" />
@@ -26,8 +26,7 @@ Built on CARLO (CARLA Low-budget), this simulator provides a lightweight yet eff
 ## Dependencies
 See requirements.txt
 
-## Running
-Simply run
+## Run
 ```python
 python LLM_scn_gen.py
 ```
