@@ -1,40 +1,29 @@
-# CARLO
-2D Driving Simulator
+# LLM based 2D AEB/ACC scenario generator using CARLO
 
 CARLO stands for _[CARLA](http://carla.org/) - Low Budget_. CARLO is definitely less realistic than CARLA, but it is much easier to play with. Most importantly, you can easily step the simulator in CARLO, and it is computationally much lighter.
 <img width="400" alt="CARLO - Example Image 1" src="carlo1.png" /><img width="400" alt="CARLO - Example Image 2" src="carlo2.png" />
 
 ## Dependencies
-You need to have the following libraries with [Python3](http://www.python.org/downloads):
-- [NumPy](http://www.numpy.org/)
-- [TkInter](http://wiki.python.org/moin/TkInter)
-- [pygame](https://www.pygame.org/) (required only for Steering Wheel controller)
+See requirements.txt
 
 ## Running
 Simply run
 ```python
-	python example_intersection.py
+	LLM_scn_gen.py
 ```
-or
-```python
-	python example_circularroad.py
-```
-for simple demos. The former has an example of how to use Steering Wheel controller (only Logitech G29), and the latter shows how to use Keyboard controller. You can also have a look at these files to understand how to customize your own environment. It is very straightforward.
+You can enter a detailed scenario description and the LLM will generate a JSON scenario config file, which will be passed to the AEB simulator and the scenario will be visulalized and the AEB performance will be evaluated.
 
 ## Features
-CARLO currently supports Cars and Pedestrians as the dynamic objects. They both use bicycle dynamics. The point-mass dynamics are commented out in the code.
+AEB/ACC LLM based scenario generator (LLM_scn_gen.py)
+- Simplistic AEB algorithm
+- Simplistic ACC algorithm
+- LLM based scenario interpreter
+- Plots for AEB/ACC system evaluation
 
-It also supports Buildings and Paintings, which are useful mostly for decoration purposes (e.g. sidewalks, zebra crossings, etc).
+Exploring the scenario parmeter space using LHS, filtering and simulating the scenarios (LHS_filter.py)
+Training a probabilistic model based on the results from LHS_filter.py and generating critical scenario parameters on the border of the pass/fail (unknown region) (probabilistic_model.py)
 
-Collision dynamics are not implemented, but CARLO has methods that can check whether or not there exists a collision between two objects.
-
-There are many hidden features right now. We will reveal them as we start writing a documentation.
-
-## Contributing
-Feel free to contribute to the code and/or initiate issues for problems and questions.
-
-## Paper citation
-If you used CARLO for your experiments, consider citing the following paper:
+Citation for CARLO:
 
 <pre>
 @inproceedings{cao2020reinforcement,

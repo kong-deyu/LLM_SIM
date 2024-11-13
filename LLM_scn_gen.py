@@ -144,6 +144,7 @@ class SimulatorGUI:
                                 - Target vehicle must be ahead of ego vehicle, meaning target_start_x > ego_start_x
                                 - Ensure the ego and target distances are not too close or too far, for example, if its too far, AEB will never activate
                                 - target time_profile must be in 1s granularity for 20 seconds, ensure that the accelerations and decelerations are smooth and realistic
+                                - times and speeds must be the same length, 20 values each
                                 - The user may use the term ego and target, which refers to the ego vehicle and target vehicle respectively
                                 - If the user says 'a slower moving target', it means the target vehicle's speed is less than the ego vehicle's speed
                                 - Target vehicle speeds should never be negative, if it is negative, then use 0
@@ -158,7 +159,7 @@ class SimulatorGUI:
                                     "ego_start_speed": 60,  # kph
                                     "target_start_x": 50,   
                                     "time_profile": {
-                                        "times": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+                                        "times": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
                                         "speeds": [16.67, 16.67, 16.67, 16.67, 16.67, 12.67, 8.67, 4.67, 0.67, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00]
                                     }
                                 }
