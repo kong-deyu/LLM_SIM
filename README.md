@@ -20,8 +20,8 @@ This tool leverages Large Language Models (LLMs) to generate and simulate Advanc
 
 Built on CARLO (CARLA Low-budget), this simulator provides a lightweight yet effective way to test autonomous vehicle safety systems without the computational overhead of full 3D environments.
 
-<img width="400" alt="AEB Simulation Screenshot 1" src="screenshots/AEB_visualization.png" />
-<img width="400" alt="AEB Simulation Screenshot 2" src="screenshots/LLM_SIM_UI.png" />
+<img width="1000" alt="AEB Simulation Screenshot 1" src="screenshots/AEB_visualization.png" />
+<img width="600" alt="AEB Simulation Screenshot 2" src="screenshots/LLM_SIM_UI.png" />
 
 ## Dependencies
 See requirements.txt
