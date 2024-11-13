@@ -22,7 +22,7 @@ Built on CARLO (CARLA Low-budget), this simulator provides a lightweight yet eff
 
 <img width="1000" alt="AEB Simulation Screenshot 1" src="screenshots/AEB_visualization.png" />
 <img width="1000" alt="AEB Simulation Screenshot 2" src="screenshots/LLM_SIM_UI.png" />
-<img width="1000" alt="AEB Simulation Screenshot 3" src="UI_stop_go_traffic.png" />
+<img width="1000" alt="AEB Simulation Screenshot 3" src="screenshots/UI_stop_go_traffic.png" />
 
 Note: the API key is free and is rate limited.
 
