@@ -4,7 +4,7 @@ This tool leverages Large Language Models (LLMs) to generate and simulate Advanc
 
 1. **Create Scenarios in Natural Language**: Simply describe your desired traffic scenario in plain English, and the LLM will convert it into a simulation-ready configuration.
 
-2. **Visualize Safety Systems**: CARLO renders AEB and ACC systems performance in real-time with:
+2. **Visualize AEB & ACC Performance**: CARLO renders AEB and ACC systems performance in real-time with:
    - Live speed and distance measurements
    - Forward Collision Warning (FCW) alerts
    - Real-time position and location updates
