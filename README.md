@@ -1,6 +1,25 @@
 # LLM based 2D AEB/ACC scenario generator using CARLO
 
-CARLO stands for _[CARLA](http://carla.org/) - Low Budget_. CARLO is definitely less realistic than CARLA, but it is much easier to play with. Most importantly, you can easily step the simulator in CARLO, and it is computationally much lighter.
+This tool leverages Large Language Models (LLMs) to generate and simulate Advanced Emergency Braking (AEB) and Adaptive Cruise Control (ACC) scenarios in a 2D environment. This tool allows users to:
+
+1. **Create Scenarios in Natural Language**: Simply describe your desired traffic scenario in plain English, and the LLM will convert it into a simulation-ready configuration.
+
+2. **Visualize Safety Systems**: CARLO renders AEB and ACC systems performance in real-time with:
+   - Live speed and distance measurements
+   - Forward Collision Warning (FCW) alerts
+   - Real-time position and location updates
+
+3. **Analyze Performance**: Evaluate system behavior through:
+   - Time-to-collision (TTC)
+   - Ego vs Target Speed
+   - Distance measurements
+   - Deceleration data
+
+4. **Explore Edge Cases**: Test and validate AEB/ACC systems across various scenarios:
+   - Generates critcal scenario configurations using probabilistic models on the edge of pass/fail.
+
+Built on CARLO (CARLA Low-budget), this simulator provides a lightweight yet effective way to test autonomous vehicle safety systems without the computational overhead of full 3D environments.
+
 <img width="400" alt="AEB Simulation Screenshot 1" src="screenshots/AEB_visualization.png" />
 <img width="400" alt="AEB Simulation Screenshot 2" src="screenshots/LLM_SIM_UI.png" />
 
@@ -12,7 +31,6 @@ Simply run
 ```python
 python LLM_scn_gen.py
 ```
-You can enter a detailed scenario description and the LLM will generate a JSON scenario config file, which will be passed to the AEB simulator and the scenario will be visulalized and the AEB performance will be evaluated.
 
 ## Features
 AEB/ACC LLM based scenario generator (LLM_scn_gen.py)
