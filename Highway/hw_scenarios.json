@@ -1,0 +1,806 @@
+{
+    "1. Merging and Exiting Scenarios": {
+      "1.1 Merging onto the Freeway": [
+        {
+            "Scenario": "High-Density Traffic Merge",
+            "Description": "The autonomous vehicle (AV) approaches the freeway on-ramp during peak rush hour. The on-ramp is a single-lane, uphill incline leading to a short acceleration lane due to urban infrastructure constraints. The freeway traffic is flowing at high speeds with minimal spacing between vehicles, offering few suitable gaps for merging. Vehicles in the rightmost lane of the freeway are traveling close together, with drivers reluctant to adjust speed or change lanes to accommodate merging traffic. The AV must accurately assess the speed and distance of oncoming vehicles, adjust its acceleration appropriately, and execute a safe merge maneuver without causing disruption to the flow of traffic or compromising safety."
+          },
+          {
+            "Scenario": "Uncooperative Drivers",
+            "Description": "While attempting to merge onto the freeway, the AV encounters drivers in the adjacent lane who are unresponsive to its merging signals. Despite using turn indicators and positioning itself for a merge, nearby vehicles maintain their speed or even accelerate to prevent the AV from entering the lane. The traffic conditions are moderate, but driver behavior is aggressive. The AV must navigate this challenging social driving situation by finding an appropriate gap, potentially adjusting its merging strategy, such as slowing down to merge behind or accelerating to merge ahead, all while ensuring safety and compliance with traffic laws."
+          },
+          {
+            "Scenario": "Abrupt Stops on On-Ramp",
+            "Description": "As the AV proceeds onto the on-ramp leading to the freeway, the vehicle directly ahead abruptly comes to a complete stop, possibly due to mechanical issues or sudden obstruction. The on-ramp is a single-lane with no shoulder or safe area to maneuver around the stopped vehicle. Traffic behind the AV is also entering the on-ramp, creating potential risk of rear-end collisions. The AV must quickly detect the unexpected stop, decelerate safely to avoid a collision, and determine the best course of action, which may include stopping and waiting, alerting following vehicles, or, if possible, safely navigating around the obstruction."
+          },
+          {
+            "Scenario": "Acceleration Lane Ends Early",
+            "Description": "The AV is merging onto a freeway where the acceleration lane is unusually short because of construction work that has temporarily reduced the length of the merge area. Warning signs indicate the lane ends earlier than normal. The AV must quickly adjust its speed to match that of the freeway traffic within a limited distance. If the traffic is heavy, finding a suitable gap becomes more challenging. The AV needs to decide whether to rapidly accelerate to merge ahead of an approaching vehicle or decelerate to merge behind, all while ensuring a smooth and safe entry onto the freeway without impeding other vehicles."
+          },
+          {
+            "Scenario": "Malfunctioning Ramp Meters",
+            "Description": "The AV approaches an on-ramp equipped with ramp metering traffic signals designed to regulate the flow of vehicles entering the freeway. On this occasion, the ramp meters are malfunctioning, displaying erratic signals or remaining unlit altogether. Some drivers are stopping at the non-functioning lights, while others proceed without stopping, causing unpredictable traffic behavior on the on-ramp. The AV must interpret the situation, decide whether to stop or proceed, and adjust its merging strategy accordingly, all while adhering to traffic laws and ensuring safety."
+          },
+          {
+            "Scenario": "Multiple Vehicles Merging Simultaneously",
+            "Description": "The AV is on an on-ramp that converges with another on-ramp from a different road, both leading onto the same acceleration lane. Several vehicles from both ramps are attempting to merge onto the freeway simultaneously, creating a convergence point with potential for side-by-side merging conflicts. The acceleration lane is of standard length but is congested due to the volume of merging traffic. The AV must navigate this complex scenario by anticipating the actions of adjacent merging vehicles, adjusting its speed and position to safely merge onto the freeway without causing collisions or impeding traffic flow."
+          },
+          {
+            "Scenario": "On-Ramp Closure or Blockage",
+            "Description": "Upon approaching its planned on-ramp to enter the freeway, the AV encounters unexpected closure signs due to construction, an accident, or other obstructions completely blocking the entrance. There are no prior warnings or suggested detours provided. The AV must quickly update its route, identifying an alternative on-ramp or route to reach its destination. This requires recalculating the navigation path, considering traffic conditions, and ensuring compliance with traffic laws while executing the rerouting maneuver, which may involve complex urban driving."
+          },
+          {
+            "Scenario": "Slow-Moving Vehicles on On-Ramp",
+            "Description": "While entering the on-ramp, the AV is behind one or more slow-moving vehicles, such as heavy trucks or vehicles towing trailers, which are accelerating at a significantly lower rate than typical traffic. The on-ramp and acceleration lane are single-lane with no opportunity to overtake safely before merging onto the freeway. The freeway traffic is moving at high speeds, and the slow pace of the vehicles ahead affects the AV's ability to match the speed of freeway traffic for a smooth merge. The AV must adjust its merging strategy, possibly by increasing following distance, preparing for a longer acceleration period, and finding a safe gap to merge without causing disruption."
+          },
+          {
+            "Scenario": "Wrong-Way Entry onto Freeway",
+            "Description": "The AV is preparing to merge onto the freeway when its sensors detect an oncoming vehicle traveling the wrong way, entering the freeway via the off-ramp and heading directly towards exiting traffic. This unexpected and hazardous situation requires immediate action. The AV must quickly assess the safest response, which may include stopping safely, alerting other drivers via signals or horn, and potentially contacting emergency services. The AV must also adjust its own merging plan to avoid the wrong-way vehicle and ensure the safety of its passengers and other road users."
+          },
+          {
+            "Scenario": "High-Speed Traffic on Merge Lane",
+            "Description": "The AV is in the acceleration lane, preparing to merge onto the freeway, when it encounters vehicles behind it using the merge lane as an extension of the freeway's rightmost lane. These vehicles are traveling at high speeds, overtaking other vehicles in the merge lane, and potentially cutting off merging traffic. The AV must navigate this misuse of the merge lane, which increases the risk of side-swipe collisions and reduces the space and time available for a safe merge. The AV needs to monitor fast-approaching vehicles from behind, adjust its speed accordingly, and find a safe gap in freeway traffic while being cautious of vehicles improperly using the merge lane."
+          }
+      ],
+      "1.2 Exiting the Freeway": [
+        {
+          "Scenario": "Last-Minute Exits by Other Vehicles",
+          "Description": "A vehicle suddenly cuts in front of the AV to take an exit."
+        },
+        {
+          "Scenario": "Exit Ramp Congestion",
+          "Description": "Backup on the exit ramp causes abrupt slowdowns on the freeway."
+        },
+        {
+          "Scenario": "Missed Exit Maneuver",
+          "Description": "The AV misses its exit and must choose whether to continue or attempt a safe lane change."
+        },
+        {
+          "Scenario": "Illegal Exit Maneuvers",
+          "Description": "A vehicle cuts across lanes at the last second to exit while the AV is also exiting."
+        },
+        {
+          "Scenario": "Exit Ramp Closure",
+          "Description": "The intended exit ramp is closed, requiring immediate route adjustment."
+        },
+        {
+          "Scenario": "Queue Spillback onto Freeway",
+          "Description": "Heavy congestion causes exit ramp traffic to back up onto freeway lanes."
+        },
+        {
+          "Scenario": "Confusing Exit Signage",
+          "Description": "Inadequate or misleading exit signs lead to last-minute lane changes."
+        },
+        {
+          "Scenario": "Multiple Exits in Close Proximity",
+          "Description": "Exits are closely spaced, requiring sequential lane changes in a short distance."
+        }
+      ]
+    },
+    "2. Lane Changing and Lane Keeping": {
+      "2.1 Lane Changing": [
+        {
+          "Scenario": "Aggressive Cut-Ins",
+          "Description": "Vehicles make sudden lane changes into the AV’s lane with minimal signaling."
+        },
+        {
+          "Scenario": "Lane Change Denial",
+          "Description": "Drivers accelerate to prevent the AV from merging into their lane."
+        },
+        {
+          "Scenario": "Blind Spot Encounters",
+          "Description": "Fast-approaching vehicles in the AV’s blind spot during a planned lane change."
+        },
+        {
+          "Scenario": "Vehicles Entering from Shoulders",
+          "Description": "A vehicle re-enters the lane from the shoulder unexpectedly."
+        },
+        {
+          "Scenario": "Invisible Lane Markings",
+          "Description": "Adverse weather renders lane markings invisible, complicating lane changes."
+        },
+        {
+          "Scenario": "HOV Lane Restrictions",
+          "Description": "Navigating rules regarding HOV lanes with limited entry and exit points."
+        },
+        {
+          "Scenario": "Dynamic Lane Reversal",
+          "Description": "Lanes change direction based on time of day, requiring adaptation."
+        }
+      ],
+      "2.2 Lane Keeping": [
+        {
+          "Scenario": "Drifting Vehicles",
+          "Description": "Adjacent vehicles drift into the AV’s lane due to distraction or impairment."
+        },
+        {
+          "Scenario": "Narrow Lanes",
+          "Description": "Temporary narrowing requires precise lane keeping, often due to construction."
+        },
+        {
+          "Scenario": "Pavement Edge Drop-Offs",
+          "Description": "Height differences between the lane and shoulder affect stability."
+        },
+        {
+          "Scenario": "Lane Encroachment by Wide Vehicles",
+          "Description": "Oversized vehicles occupy more than one lane, requiring precise lane keeping."
+        }
+      ]
+    },
+    "3. Interactions with Other Road Users": {
+      "3.1 Aggressive or Erratic Drivers": [
+        {
+          "Scenario": "Sudden Braking Ahead",
+          "Description": "The vehicle ahead brakes hard without warning."
+        },
+        {
+          "Scenario": "Tailgating from Behind",
+          "Description": "A following vehicle is too close, reducing safe stopping distance."
+        },
+        {
+          "Scenario": "Erratic Driving Behaviors",
+          "Description": "Swerving or unpredictable speed changes by nearby vehicles."
+        },
+        {
+          "Scenario": "Road Rage Incidents",
+          "Description": "Aggressive behavior towards the AV, such as unsafe passing."
+        },
+        {
+          "Scenario": "Brake Checking",
+          "Description": "A driver intentionally brakes suddenly to provoke a reaction."
+        },
+        {
+          "Scenario": "Distracted Drivers Swerving",
+          "Description": "Drivers swerving due to distraction, potentially encroaching into the AV's lane."
+        },
+        {
+          "Scenario": "Impaired Drivers",
+          "Description": "Erratic speed and lane position from drivers under the influence."
+        },
+        {
+          "Scenario": "Vehicles with Malfunctioning Lights",
+          "Description": "Vehicles without functioning brake lights or turn signals."
+        }
+      ],
+      "3.2 Non-Standard Road Users": [
+        {
+          "Scenario": "Motorcycle Lane Splitting",
+          "Description": "Motorcycles pass between lanes during congestion."
+        },
+        {
+          "Scenario": "Erratic Motorcycle Maneuvers",
+          "Description": "Sudden lane changes or weaving through traffic by motorcycles."
+        },
+        {
+          "Scenario": "Bicycles on Freeway Shoulder",
+          "Description": "A bicycle illegally on the shoulder moving slowly."
+        },
+        {
+          "Scenario": "Pedestrians Near On/Off Ramps",
+          "Description": "Individuals walking near freeway entrances or exits."
+        },
+        {
+          "Scenario": "Pedestrians on Freeway",
+          "Description": "A pedestrian attempts to cross or walks along the freeway."
+        },
+        {
+          "Scenario": "Pedestrians on Freeway Overpasses",
+          "Description": "Pedestrians on overpasses exhibit risky behavior."
+        },
+        {
+          "Scenario": "Electric Scooters or Wheelchairs",
+          "Description": "Unauthorized users on the shoulder or lanes."
+        },
+        {
+          "Scenario": "Animals Herded Across Freeway",
+          "Description": "Animals are herded across the freeway under supervision."
+        },
+        {
+          "Scenario": "Horseback Riders on Shoulder",
+          "Description": "Individuals riding horses along the freeway shoulder."
+        },
+        {
+          "Scenario": "Skateboarders or Cyclists Using Freeway",
+          "Description": "Unauthorized users attempt high-speed runs on the freeway."
+        }
+      ]
+    },
+    "4. Obstacle Avoidance": [
+      {
+        "Scenario": "Road Debris",
+        "Description": "Objects like tire fragments appear suddenly in the AV’s lane."
+      },
+      {
+        "Scenario": "Lost Cargo",
+        "Description": "Items fall off a vehicle ahead, requiring evasive action."
+      },
+      {
+        "Scenario": "Disabled Vehicles",
+        "Description": "A stalled vehicle partially obstructs the lane."
+      },
+      {
+        "Scenario": "Barrier or Guardrail Damage",
+        "Description": "Damaged barriers encroach into the roadway, narrowing lanes."
+      },
+      {
+        "Scenario": "Misplaced Cones or Barriers",
+        "Description": "Traffic control devices are out of place, causing confusion."
+      },
+      {
+        "Scenario": "Animals on Roadway",
+        "Description": "An animal crosses the freeway, prompting sudden reactions."
+      },
+      {
+        "Scenario": "Large Animals Crossing",
+        "Description": "Deer or livestock cross the freeway unexpectedly."
+      },
+      {
+        "Scenario": "Sinkholes or Sudden Road Damage",
+        "Description": "Structural failures create immediate obstacles."
+      },
+      {
+        "Scenario": "Fallen Trees or Branches",
+        "Description": "A tree falls onto the roadway due to weather."
+      },
+      {
+        "Scenario": "Debris from Overpasses",
+        "Description": "Objects fall from overpasses onto the roadway."
+      }
+    ],
+    "5. Traffic Congestion Scenarios": [
+      {
+        "Scenario": "Stop-and-Go Traffic",
+        "Description": "Frequent starting and stopping due to congestion."
+      },
+      {
+        "Scenario": "Sudden Traffic Slowdowns",
+        "Description": "Unexpected slow traffic without a visible cause."
+      },
+      {
+        "Scenario": "Merging Congestion",
+        "Description": "Multiple vehicles merge into the same lane simultaneously."
+      },
+      {
+        "Scenario": "Parades or Convoys",
+        "Description": "A convoy travels slowly, affecting normal traffic flow."
+      },
+      {
+        "Scenario": "Phantom Traffic Jams Dissipating Suddenly",
+        "Description": "Traffic congestion clears unexpectedly."
+      },
+      {
+        "Scenario": "Emergency Evacuation Traffic",
+        "Description": "Heavy traffic due to evacuation orders leads to abnormal patterns."
+      },
+      {
+        "Scenario": "Special Events Causing Congestion",
+        "Description": "Nearby events cause sudden influxes of traffic onto the freeway."
+      }
+    ],
+    "6. Road Construction Zones": [
+      {
+        "Scenario": "Temporary Lane Closures",
+        "Description": "Lane closures require merging and prompt aggressive behaviors."
+      },
+      {
+        "Scenario": "Shifting Lane Patterns",
+        "Description": "Temporary markings redirect traffic flow."
+      },
+      {
+        "Scenario": "Construction Vehicle Entry",
+        "Description": "Slow-moving construction vehicles enter or exit the freeway."
+      },
+      {
+        "Scenario": "Faded or Missing Lane Markings",
+        "Description": "The AV must navigate without clear lane demarcations."
+      },
+      {
+        "Scenario": "Old or Temporary Markings",
+        "Description": "Confusion due to outdated or temporary lane markings."
+      },
+      {
+        "Scenario": "Construction Equipment Malfunctions",
+        "Description": "Malfunctioning equipment moves into active lanes."
+      },
+      {
+        "Scenario": "Unattended Construction Materials",
+        "Description": "Materials are left in lanes, causing hazards."
+      },
+      {
+        "Scenario": "Workers Close to Traffic Lanes",
+        "Description": "Construction workers operate close to moving traffic."
+      },
+      {
+        "Scenario": "Dynamic Construction Zones",
+        "Description": "Construction areas change rapidly with new patterns."
+      }
+    ],
+    "7. Road Sign and Marking Issues": [
+      {
+        "Scenario": "Inconsistent Signage",
+        "Description": "Conflicting speed limits or directional signs."
+      },
+      {
+        "Scenario": "Electronic Signage Changes",
+        "Description": "Variable message signs change information suddenly."
+      },
+      {
+        "Scenario": "Misleading Road Markings",
+        "Description": "Old or temporary markings conflict with current lanes."
+      },
+      {
+        "Scenario": "Mislabeled or Vandalized Signs",
+        "Description": "Signs display incorrect information due to vandalism or errors."
+      },
+      {
+        "Scenario": "Electronic Signage Malfunction or Hacking",
+        "Description": "Signs display incorrect or nonsensical information."
+      },
+      {
+        "Scenario": "Obstructed Signs",
+        "Description": "Vegetation or obstructions hide important traffic signs."
+      }
+    ],
+    "8. Road Geometry Challenges": [
+      {
+        "Scenario": "Sharp Curves",
+        "Description": "Handling tight turns at freeway speeds."
+      },
+      {
+        "Scenario": "Elevation Changes",
+        "Description": "Sudden inclines or declines affect vehicle dynamics."
+      },
+      {
+        "Scenario": "Narrow Bridges or Tunnels",
+        "Description": "Constricted spaces require precise navigation."
+      },
+      {
+        "Scenario": "Complex Interchanges",
+        "Description": "Multi-level interchanges with unusual merging patterns."
+      },
+      {
+        "Scenario": "Low Clearance Areas",
+        "Description": "Avoiding areas with low clearance if carrying tall loads."
+      },
+      {
+        "Scenario": "Sudden Lane Drops",
+        "Description": "A lane ends abruptly without much warning."
+      }
+    ],
+    "9. Environmental Factors": [
+      {
+        "Scenario": "Wind Gusts Affecting Large Vehicles",
+        "Description": "Trucks swerve due to wind, encroaching into the AV’s lane."
+      },
+      {
+        "Scenario": "Adverse Weather Conditions",
+        "Description": "Rain, fog, or snow affect visibility and road traction."
+      },
+      {
+        "Scenario": "Sudden Fog Banks",
+        "Description": "The AV enters dense fog, reducing visibility."
+      },
+      {
+        "Scenario": "Sun Glare",
+        "Description": "Low sun angles cause glare affecting sensors."
+      },
+      {
+        "Scenario": "Flash Flooding",
+        "Description": "Rapid water accumulation leads to standing water."
+      },
+      {
+        "Scenario": "Smoke from Nearby Fires",
+        "Description": "Wildfire smoke reduces visibility and air quality."
+      }
+    ],
+    "10. Vehicle Malfunctions and Unusual Behaviors": [
+      {
+        "Scenario": "Tire Blowouts",
+        "Description": "A vehicle ahead has a blowout, causing unpredictable movements."
+      },
+      {
+        "Scenario": "Mechanical Failures",
+        "Description": "A vehicle slows down abruptly due to engine failure."
+      },
+      {
+        "Scenario": "Unsecured Loads",
+        "Description": "Cargo shifts or falls onto the roadway."
+      },
+      {
+        "Scenario": "Slow-Moving Vehicles",
+        "Description": "Vehicles travel significantly below the speed limit."
+      },
+      {
+        "Scenario": "Oversized Loads",
+        "Description": "Wide vehicles require additional clearance."
+      },
+      {
+        "Scenario": "Vehicles Losing Control",
+        "Description": "Skidding or overcorrection leads to unpredictable hazards."
+      },
+      {
+        "Scenario": "Vehicle Fires",
+        "Description": "A vehicle ahead catches fire, causing erratic behavior."
+      },
+      {
+        "Scenario": "Driverless Moving Vehicle",
+        "Description": "A vehicle moves without an apparent driver."
+      },
+      {
+        "Scenario": "Vehicle Driving on Rims",
+        "Description": "A vehicle continues driving despite tire failure."
+      },
+      {
+        "Scenario": "Stalled Vehicles in Blind Spots",
+        "Description": "A stalled vehicle is located just beyond a curve or hillcrest."
+      }
+    ],
+    "11. Erroneous or Illegal Actions by Other Drivers": [
+      {
+        "Scenario": "Vehicles Reversing on Freeway",
+        "Description": "A driver reverses after missing an exit."
+      },
+      {
+        "Scenario": "Wrong-Way Drivers",
+        "Description": "A vehicle enters the freeway going the wrong direction."
+      },
+      {
+        "Scenario": "Illegal Exits",
+        "Description": "Last-second lane crossings to reach an exit."
+      },
+      {
+        "Scenario": "Ignoring Traffic Rules",
+        "Description": "Illegal U-turns or stopping on the freeway."
+      },
+      {
+        "Scenario": "Street Racing",
+        "Description": "Vehicles race on the freeway, weaving through traffic."
+      },
+      {
+        "Scenario": "Police Chases",
+        "Description": "A vehicle fleeing law enforcement drives recklessly."
+      },
+      {
+        "Scenario": "Deliberate Obstruction",
+        "Description": "A driver intentionally blocks lanes to impede traffic."
+      },
+      {
+        "Scenario": "Vehicles Driving on Shoulders",
+        "Description": "Drivers illegally use the shoulder to pass traffic."
+      }
+    ],
+    "12. Complex Road Configurations": [
+      {
+        "Scenario": "High-Occupancy Vehicle (HOV) Lanes",
+        "Description": "Navigating entry and exit points with specific rules."
+      },
+      {
+        "Scenario": "Toll Lanes with Dynamic Rules",
+        "Description": "Dealing with variable speed limits or access restrictions."
+      },
+      {
+        "Scenario": "Complex Merging Situations",
+        "Description": "Forced merges due to lane closures."
+      },
+      {
+        "Scenario": "Temporary Diversions Off Freeway",
+        "Description": "Traffic is rerouted onto surface streets due to incidents."
+      },
+      {
+        "Scenario": "Intermittent One-Way Systems",
+        "Description": "Lanes switch direction during peak hours."
+      },
+      {
+        "Scenario": "High-Occupancy Toll (HOT) Lanes",
+        "Description": "Lanes switch between HOV and toll use based on conditions."
+      }
+    ],
+    "13. Emergency Vehicles and Situations": [
+      {
+        "Scenario": "Emergency Vehicles in Adjacent Lanes",
+        "Description": "Handling passing emergency vehicles appropriately."
+      },
+      {
+        "Scenario": "Traffic Breaks by Law Enforcement",
+        "Description": "Officers weave across lanes to slow traffic."
+      },
+      {
+        "Scenario": "Emergency Braking Chain Reactions",
+        "Description": "A sudden stop ahead causes a ripple effect."
+      },
+      {
+        "Scenario": "Emergency Landing of Aircraft",
+        "Description": "A small aircraft makes an emergency landing on the freeway."
+      },
+      {
+        "Scenario": "Military Convoys",
+        "Description": "Military vehicles travel with specific patterns and security."
+      },
+      {
+        "Scenario": "First Responder Staging Areas",
+        "Description": "Emergency services use part of the freeway, altering flow."
+      }
+    ],
+    "14. Behavioral Prediction Challenges": [
+      {
+        "Scenario": "Unpredictable Driver Behavior",
+        "Description": "Swerving to avoid unseen obstacles or due to distraction."
+      },
+      {
+        "Scenario": "Sudden Speed Changes",
+        "Description": "Rapid acceleration or deceleration without apparent reason."
+      },
+      {
+        "Scenario": "Rapid Speed Limit Reductions",
+        "Description": "Sudden changes due to construction or events."
+      },
+      {
+        "Scenario": "Vehicles with Unusual Designs",
+        "Description": "Modified vehicles may not be recognized properly."
+      },
+      {
+        "Scenario": "Autonomous Vehicles from Other Manufacturers",
+        "Description": "Interaction with other AVs that may behave unpredictably."
+      },
+      {
+        "Scenario": "Inconsistent Behavior Due to Driverless Testing",
+        "Description": "Encountering test vehicles not following standard protocols."
+      }
+    ],
+    "15. Unusual Road Users": [
+      {
+        "Scenario": "Animal Crossings",
+        "Description": "Small animals dart across the freeway."
+      },
+      {
+        "Scenario": "Pedestrians on Freeway",
+        "Description": "Individuals attempt to cross or walk along the freeway."
+      },
+      {
+        "Scenario": "Bicycles on Freeway Shoulder",
+        "Description": "Bicycles illegally present, moving slowly."
+      },
+      {
+        "Scenario": "Motorcycle Lane Splitting",
+        "Description": "Motorcycles pass between lanes during congestion."
+      },
+      {
+        "Scenario": "Horseback Riders on Shoulder",
+        "Description": "Individuals riding horses along the freeway shoulder."
+      },
+      {
+        "Scenario": "Pedestrians Performing Stunts",
+        "Description": "Individuals running across the freeway as a prank."
+      },
+      {
+        "Scenario": "Skateboarders or Cyclists Using Freeway",
+        "Description": "Unauthorized users attempt high-speed runs."
+      }
+    ],
+    "16. Multi-Vehicle Interactions": [
+      {
+        "Scenario": "Surrounding Vehicle Coordination",
+        "Description": "Navigating when surrounded with minimal gaps."
+      },
+      {
+        "Scenario": "Chain-Reaction Collisions",
+        "Description": "A collision ahead causes multiple vehicles to brake hard."
+      },
+      {
+        "Scenario": "Vehicles Losing Control",
+        "Description": "Skids or overcorrections create unpredictable hazards."
+      },
+      {
+        "Scenario": "Major Pile-Ups",
+        "Description": "A multi-vehicle collision blocks multiple lanes."
+      },
+      {
+        "Scenario": "Coordinated Driving Groups",
+        "Description": "Groups intentionally slow traffic as a form of protest."
+      },
+      {
+        "Scenario": "Vehicles Forming a Rolling Roadblock",
+        "Description": "Multiple vehicles spread across lanes driving slowly."
+      }
+    ],
+    "17. Sudden Changes in Traffic Regulations": [
+      {
+        "Scenario": "Speed Limit Changes",
+        "Description": "Rapid reductions due to construction or special events."
+      },
+      {
+        "Scenario": "Electronic Signage Updates",
+        "Description": "Variable signs change speed limits or lane usage."
+      },
+      {
+        "Scenario": "Unannounced Road Closures",
+        "Description": "Authorities close the freeway without prior notice."
+      },
+      {
+        "Scenario": "Temporary Checkpoints",
+        "Description": "Law enforcement sets up checkpoints requiring stops."
+      },
+      {
+        "Scenario": "VIP Motorcades",
+        "Description": "Traffic is halted to allow passage of a VIP convoy."
+      }
+    ],
+    "18. Unexpected Vehicle Entries": [
+      {
+        "Scenario": "Re-entry from Shoulders",
+        "Description": "A vehicle abruptly re-enters traffic without acceleration."
+      },
+      {
+        "Scenario": "Illegal Entry Points",
+        "Description": "Entry from unauthorized areas like maintenance accesses."
+      },
+      {
+        "Scenario": "Runaway Vehicles",
+        "Description": "Unattended vehicles roll onto the freeway."
+      },
+      {
+        "Scenario": "Vehicles Entering from Construction Access",
+        "Description": "Vehicles enter from non-standard access points."
+      }
+    ],
+    "19. Environmental Factors Affecting Others": [
+      {
+        "Scenario": "Wind Gusts",
+        "Description": "Strong winds cause vehicles to drift into adjacent lanes."
+      },
+      {
+        "Scenario": "Weather-Induced Behaviors",
+        "Description": "Adverse weather leads to erratic driving by others."
+      },
+      {
+        "Scenario": "Hailstorms",
+        "Description": "Sudden hail affects control and causes drivers to stop."
+      },
+      {
+        "Scenario": "Ash Fall from Volcanic Activity",
+        "Description": "Ash reduces visibility and affects systems."
+      },
+      {
+        "Scenario": "Tornadoes or Extreme Wind Events",
+        "Description": "Severe winds cause unpredictable driver reactions."
+      }
+    ],
+    "20. Emergency Maneuvers by Other Vehicles": [
+      {
+        "Scenario": "Avoidance of Obstacles",
+        "Description": "A vehicle swerves suddenly, requiring the AV to adjust."
+      },
+      {
+        "Scenario": "Sudden Stops for Unseen Reasons",
+        "Description": "A vehicle stops abruptly without an apparent cause."
+      },
+      {
+        "Scenario": "Medical Emergencies",
+        "Description": "A driver experiences a medical issue, leading to erratic driving."
+      },
+      {
+        "Scenario": "Debris from Overhead Structures",
+        "Description": "Parts of signs or bridges fall onto the roadway."
+      }
+    ],
+    "21. Unusual Load Carriers": [
+      {
+        "Scenario": "Vehicles Towing Unusual Loads",
+        "Description": "Homemade trailers or oversized items not secured properly."
+      },
+      {
+        "Scenario": "Overloaded Vehicles",
+        "Description": "Vehicles exceed safe limits, affecting stability."
+      },
+      {
+        "Scenario": "Hazardous Material Spills",
+        "Description": "A tanker leaks hazardous material, requiring caution."
+      }
+    ],
+    "22. Technology Failures": [
+      {
+        "Scenario": "GPS Signal Loss or Inaccuracies",
+        "Description": "The AV loses GPS signal, affecting navigation."
+      },
+      {
+        "Scenario": "Sensor Obstructions",
+        "Description": "Mud, snow, or debris obstructs sensors."
+      },
+      {
+        "Scenario": "Cybersecurity Attacks",
+        "Description": "Attempts to hack the AV's systems cause incorrect behavior."
+      }
+    ],
+    "23. Infrastructure Failures": [
+      {
+        "Scenario": "Traffic Light Malfunctions at Entrances",
+        "Description": "Malfunctioning lights cause confusion at ramp meters."
+      },
+      {
+        "Scenario": "Bridge or Overpass Structural Failures",
+        "Description": "Issues require sudden closures or cause debris."
+      },
+      {
+        "Scenario": "Power Outages Affecting Lighting",
+        "Description": "Darkness on sections of the freeway due to failures."
+      }
+    ],
+    "24. Unpredictable Human Factors": [
+      {
+        "Scenario": "Pedestrians Engaging with AV",
+        "Description": "Individuals try to interfere with the AV intentionally."
+      },
+      {
+        "Scenario": "Emotional Drivers",
+        "Description": "Drivers exhibiting road rage or distress."
+      },
+      {
+        "Scenario": "Driverless Cars Protesting",
+        "Description": "Coordinated groups block traffic to protest AV technology."
+      }
+    ],
+    "25. Natural Disasters": [
+      {
+        "Scenario": "Earthquakes",
+        "Description": "Sudden shaking affects stability and may damage roads."
+      },
+      {
+        "Scenario": "Landslides onto Freeway",
+        "Description": "Debris blocks lanes or the entire roadway."
+      },
+      {
+        "Scenario": "Tsunami Warnings",
+        "Description": "Evacuation orders require rapid and coordinated movement."
+      }
+    ],
+    "26. Cross-Border or Jurisdictional Challenges": [
+      {
+        "Scenario": "Differing Traffic Laws",
+        "Description": "Crossing into areas where laws or signage differ."
+      },
+      {
+        "Scenario": "Border Checkpoints",
+        "Description": "Approaching international borders requires compliance with procedures."
+      }
+    ],
+    "27. Unusual Weather Phenomena": [
+      {
+        "Scenario": "Solar Eclipses",
+        "Description": "Sudden darkness causes distraction or erratic behavior."
+      },
+      {
+        "Scenario": "Dust Storms",
+        "Description": "Blowing dust reduces visibility to near zero."
+      },
+      {
+        "Scenario": "Ice Storms",
+        "Description": "Rapid ice accumulation creates slippery conditions."
+      }
+    ],
+    "28. Space Debris or Meteor Showers": [
+      {
+        "Scenario": "Falling Objects from Space",
+        "Description": "Debris impacts the ground, causing unexpected hazards."
+      }
+    ],
+    "29. Unplanned Human Activities": [
+      {
+        "Scenario": "Protest Marches Crossing Freeways",
+        "Description": "Large groups obstruct the freeway as a demonstration."
+      },
+      {
+        "Scenario": "Flash Mobs",
+        "Description": "Sudden gatherings spill onto the freeway, causing disruptions."
+      }
+    ],
+    "30. Interactions with Law Enforcement": [
+      {
+        "Scenario": "Random Stops",
+        "Description": "Police stop vehicles randomly for inspections."
+      },
+      {
+        "Scenario": "Emergency Roadblocks",
+        "Description": "Law enforcement sets up roadblocks, necessitating rerouting."
+      }
+    ]
+  }
