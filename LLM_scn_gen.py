@@ -138,17 +138,19 @@ class SimulatorGUI:
 
                                 Rules: 
                                 - All vehicles are traveling in the same direction (x-axis)
-                                - The unit system for speed is KPH
+                                - The unit system for ego_start_speed is kph
+                                - The unit system for speeds is m/s
                                 - The unit system for distance is meters
                                 - All JSON values must be numbers, if value is None, use 0
                                 - Target vehicle must be ahead of ego vehicle, meaning target_start_x > ego_start_x
                                 - Ensure the ego and target distances are not too close or too far, for example, if its too far, AEB will never activate
-                                - target time_profile must be in 1s granularity for 20 seconds, ensure that the accelerations and decelerations are smooth and realistic
-                                - times and speeds must be the same length, 20 values each
+                                - Ensure the times and speeds must be the same length
+                                - The max array length for both speed and time is 20
                                 - The user may use the term ego and target, which refers to the ego vehicle and target vehicle respectively
                                 - If the user says 'a slower moving target', it means the target vehicle's speed is less than the ego vehicle's speed
                                 - Target vehicle speeds should never be negative, if it is negative, then use 0
                                 - Always return a scenario configuration, to the best of your ability
+                                - You may not generate negative speeds, if it is negative, then use 0
 
                                 Example user input:
                                 "Ego and target vehicles both traveling at 60 kph, then after some time, the target decelerates at -4 m/s^2"
@@ -173,8 +175,8 @@ class SimulatorGUI:
                                     "ego_start_speed": 50,  # kph
                                     "target_start_x": 50,   
                                     "time_profile": {
-                                        "times": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
-                                        "speeds": [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00]
+                                        "times": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+                                        "speeds": [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00]
                                     }
                                 }
 
@@ -228,6 +230,15 @@ class SimulatorGUI:
                 plot_data['aeb_controller'],
                 plot_data['target_speed_data']
             )
+
+            # Add this after the API response
+            if response.status_code == 200:
+                response_json = response.json()
+                token_usage = response_json.get('usage', {})
+                self.output_area.insert(tk.END, "\nToken Usage:\n")
+                self.output_area.insert(tk.END, f"Prompt tokens: {token_usage.get('prompt_tokens', 'N/A')}\n")
+                self.output_area.insert(tk.END, f"Completion tokens: {token_usage.get('completion_tokens', 'N/A')}\n")
+                self.output_area.insert(tk.END, f"Total tokens: {token_usage.get('total_tokens', 'N/A')}\n\n")
 
         except json.JSONDecodeError as e:
             self.output_area.insert(tk.END, f"JSON Parse Error: {str(e)}\nResponse: {response.text}\n")
