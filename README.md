@@ -1,4 +1,4 @@
-# LLM based 2D AEB/ACC scenario generator using CARLO
+# LLM based AEB/ACC critical scenario generator 
 
 This tool leverages Large Language Models (LLMs) to generate and simulate Advanced Emergency Braking (AEB) and Adaptive Cruise Control (ACC) scenarios in a 2D environment. This tool allows users to:
 
