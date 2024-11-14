@@ -31,20 +31,17 @@ This tool uses CARLO (CARLA Low-budget), a lightweight and effective 2D simulato
 
 Note: the API key is free and is rate limited.
 
-
-## Future Development
-I am interested in further development of this tool by allowing the user to explore scenario parmeter space 
-Using LLMs to generate more advanced scenario configurations
-testing this framework on another scene (ex: unprotected left turn, target cut-in, highway merge)
-
+# Critical Scenario Generation and exploration using probabilistic models
 
 **LHS_filter.py**
+
 1. Determine the most salient parameters in a scene and reasonable ranges.
 2. Initial sampling of the parameter space using Latin Hypercube Sampling (LHS)
 3. Filtering out the unrealistic/non-critical scenarios presim, then batch simulate the scenarios
 4. Filter out the scenarios with a high probability of collision or avoidance (not useful for the training stage)
---
-**probalistic_model.py**
+
+**probabilistic_model.py**
+
 5. Train the initial Gaussian Process model using the simulation results
 6. Use LHS & criticality filtering to filter to generate another set of scenario configurations
 7. Predict collision probabilities (likelihood of a collision occurring in a given scenario) using GP model and calculate the uncertainty scores (model’s confidence in its probability prediction) 
@@ -56,6 +53,14 @@ testing this framework on another scene (ex: unprotected left turn, target cut-i
 
 Example output of ego vs target speed in the AEB example (Red - low probability of collision, blue - high probability of collision). This makes sense intuitively as most AEB systems can scrub a maximum of 45-60 kph.
 <img width="600" alt="Probablistic Model parameter relationship" src="screenshots/AEB_ego_vs_target_spd.png" />
+
+# Future Development
+I'd like to continue to explore applications of LLMs and probabilistic models in AD/ADAS V&V. Here are a few areas that I am interested in:
+- Developing a GUI that allows test engineers to systematically and visually explore a scenario design space, for example, highway merge [highway_gui.py]
+- LLM generates the roadgraph and agents using the user selections from the GUI 
+- Scenario reconstruction of accident/crash reports using LLMs 
+- Testing the probabilistic scenario generation framework on other scenes (ex: unprotected left turn, target cut-in, highway merge)
+- Automating triage/categorization test failures using LLMs
 
 ## Dependencies
 See requirements.txt
