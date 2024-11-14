@@ -56,11 +56,12 @@ Example output of ego vs target speed in the AEB example (Red - low probability 
 
 # Future Development
 I'd like to continue to explore applications of LLMs and probabilistic models in AD/ADAS V&V. Here are a few areas that I am interested in:
-- Developing a GUI that allows test engineers to systematically and visually explore a scenario design space, for example, highway merge [highway_gui.py]
-- LLM generates the roadgraph and agents using the user selections from the GUI 
+- GUI that allows test engineers to systematically and visually explore a scenario design space, for example, highway merge [highway_gui.py], LLMs provides potential testing ideas and feedback on user selection
+- Fine tuning LLMs for scenario generation
+- Fine tuned LLM generates scenarios (roadgraph and agent setup) using the user selections from the GUI 
 - Scenario reconstruction of accident/crash reports using LLMs 
 - Testing the probabilistic scenario generation framework on other scenes (ex: unprotected left turn, target cut-in, highway merge)
-- Automating triage/categorization test failures using LLMs
+- Automating triage/categorization test failures & reporting using agentic LLMs
 
 ## Dependencies
 See requirements.txt
