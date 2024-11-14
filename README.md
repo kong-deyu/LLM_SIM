@@ -1,29 +1,30 @@
 # LLM based AEB/ACC critical scenario generator 
 
-This tool leverages Large Language Models (LLMs) to generate and simulate Advanced Emergency Braking (AEB) and Adaptive Cruise Control (ACC) scenarios in a 2D environment. This tool allows users to:
+This tool leverages Large Language models (LLMs) to create and simulate Automatic Emergency Braking (AEB) and Adaptive Cruise Control (ACC) scenarios in a low-fidelity 2D environment. Features include:
 
-1. **Create Scenarios in Natural Language**: Simply describe your desired traffic scenario in plain English, and the LLM will convert it into a simulation-ready configuration.
-
-2. **Visualize AEB & ACC Performance**: CARLO renders AEB and ACC systems performance in real-time with:
-   - Live speed and distance measurements
-   - Forward Collision Warning (FCW) alerts
-   - Real-time position and location updates
-
-3. **Analyze Performance**: Evaluate system behavior through:
-   - Time-to-collision (TTC)
-   - Ego vs Target Speed
-   - Distance measurements
-   - Deceleration data
-
-4. **Explore Critical Scenarios**
-   1. Optimizes the allocation of simulation resources through the use of probablistic models
-   2. Maximize test coverage by exploring the entire parameter space with adaptive sampling techniques
-   3. Identifies the most critical scenarios by targeting the 'unknown regions' - boundaries of pass/fail within the parameter space
-
-This tool uses CARLO (CARLA Low-budget), a lightweight and effective 2D simulator to test autonomous vehicle safety systems without the computational overhead of full 3D environments. See citation for CARLO below.
+1. **Create Scenarios in Natural Language**: Describe a scenario in plain English (ex: ego vehicle is traveling at 100 kph towards a slower moving target vehicle traveling at 40 kph, target vehicle decelerates at -4 m/s^2 when when the gap is 20m) and the LLM transforms it into a simulation-ready configuration using multishot prompting.
 
 **Screenshot 1: FCW visualization of the simplistic 2D simulator**
 <img width="1000" alt="AEB Simulation Screenshot 1" src="screenshots/AEB_visualization.png" />
+
+3. **Visualize AEB & ACC Performance**: This tool uses CARLO (CARLA Low-budget), a lightweight and effective 2D simulator to test autonomous vehicle safety systems without the computational overhead of full 3D environments. See citation for CARLO below. CARLO renders AEB and ACC systems performance in real-time with:
+   - Live speed and distance measurements
+   - Real-time Forward Collision Warning (FCW) alerts
+   - Real-time position and location updates
+
+4. **Analyze Performance**: Evaluate system behavior through:
+   - Time-to-collision (TTC)
+   - Ego vs Target Speed
+   - Distance to target
+   - AEB/FCW activation points
+   - Required vs commanded deceleration data
+
+5. **Explore Critical Scenarios** - (WIP) more info on this in the next section
+   1. Optimizes the allocation of simulation resources through the use of probablistic models 
+   2. Maximize test coverage by exploring the entire parameter space with adaptive sampling techniques
+   3. Identifies the most critical scenarios by targeting the 'unknown regions' - boundaries of pass/fail within the parameter space
+
+
 **Screenshot 2: User interface and example of the auto generated data analysis plots for AEB**
 <img width="1000" alt="AEB Simulation Screenshot 2" src="screenshots/LLM_SIM_UI.png" />
 **Screenshot 3: example scenario generated for stop and go traffic**
@@ -31,7 +32,7 @@ This tool uses CARLO (CARLA Low-budget), a lightweight and effective 2D simulato
 
 Note: the API key is free and is rate limited.
 
-# Critical Scenario Generation and exploration using probabilistic models
+# Critical Scenario Generation and exploration using probabilistic models (WIP)
 
 **LHS_filter.py**
 
