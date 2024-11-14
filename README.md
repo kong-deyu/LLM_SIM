@@ -15,13 +15,11 @@ This tool leverages Large Language models (LLMs) to create and simulate Automati
 4. **Analyze Performance**: Evaluate system behavior through:
    - Time-to-collision (TTC)
    - Ego vs Target Speed
-
-https://github.com/user-attachments/assets/21967283-e74e-4366-9247-f2871d72f7ca
-
-
    - Distance to target
    - AEB/FCW activation points
    - Required vs commanded deceleration data
+
+https://github.com/user-attachments/assets/21967283-e74e-4366-9247-f2871d72f7ca
 
 5. **Explore Critical Scenarios** - (WIP) more info on this in the next section
    1. Optimizes the allocation of simulation resources through the use of probablistic models 
