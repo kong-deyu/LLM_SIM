@@ -22,8 +22,11 @@ This tool leverages Large Language Models (LLMs) to generate and simulate Advanc
 
 This tool uses CARLO (CARLA Low-budget), a lightweight and effective 2D simulator to test autonomous vehicle safety systems without the computational overhead of full 3D environments. See citation for CARLO below.
 
+## Screenshot 1: FCW visualization of the simplistic 2D simulator
 <img width="1000" alt="AEB Simulation Screenshot 1" src="screenshots/AEB_visualization.png" />
+## Screenshot 2: User interface and example of the auto generated data analysis plots for AEB
 <img width="1000" alt="AEB Simulation Screenshot 2" src="screenshots/LLM_SIM_UI.png" />
+## Screenshot 3: example scenario generated for stop and go traffic
 <img width="1000" alt="AEB Simulation Screenshot 3" src="screenshots/UI_stop_go_traffic.png" />
 
 Note: the API key is free and is rate limited.
