@@ -25,9 +25,7 @@ This tool leverages Large Language models (LLMs) to create and simulate Automati
    3. Identifies the most critical scenarios by targeting the 'unknown regions' - boundaries of pass/fail within the parameter space
 
 
-**Screenshot 2: User interface and example of the auto generated data analysis plots for AEB**
-<img width="1000" alt="AEB Simulation Screenshot 2" src="screenshots/LLM_SIM_UI.png" />
-**Screenshot 3: example scenario generated for stop and go traffic**
+**Screenshot 2: example scenario generated for stop and go traffic along with UI & Plots**
 <img width="1000" alt="AEB Simulation Screenshot 3" src="screenshots/UI_stop_go_traffic.png" />
 
 Note: the API key is free and is rate limited.
